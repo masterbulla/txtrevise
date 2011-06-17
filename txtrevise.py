@@ -99,7 +99,7 @@ def matchReplace(line, lineNo, match, repl):
     if re.search(match, line):    
         if verbose: print("\nMatched at Line %d: %s" % (lineNo, line))
         newLine = re.sub(match, repl, line)
-        if verbose: print("Replaced with:\t %s" % newLine)
+        if verbose: print("Replaced with: %s" % newLine)
 
     # Otherwise, return same line as before
     else:
@@ -136,4 +136,3 @@ def displayError(err):
 
 # Invoke main method
 if __name__ == "__main__": main()
-

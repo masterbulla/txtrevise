@@ -18,19 +18,19 @@ my $version = '1.1'; # Means compatible with Python-based version 1.1.
 my $notverbose;
 
 sub main {
-	##
-	# Main method.
-	##
-	# Produce verbose output by default.
+    ##
+    # Main method.
+    ##
+    # Produce verbose output by default.
 	$notverbose = 0;
 
-	# Count arguments provided, if none;
+    # Count arguments provided, if none;
     # display "No arguments.." message and usage.
     if(@ARGV < 1) {
 	    displayError("No options specified")
-	}
+    }
 
-	# Process provided arguments
+    # Process provided arguments
     my $filename = "";
     my $match;
     my $repl;
@@ -51,13 +51,13 @@ sub main {
 	}
     
     # With necessary argument, process file.
-	if( $filename =~ /\w+/) {
+    if( $filename =~ /\w+/) {
         processFile($filename, $lineno, $match, $repl)
-	}
+    }
 }
 
 sub processFile {
-	##
+    ##
     # Process file.
     # $_[0]: File to read/write.
     # $_[1]: Line number to read.
@@ -120,7 +120,7 @@ sub matchReplace {
 }
 
 sub displayUsage {
-	##
+    ##
     # Display usage information.
     ##
     print "\nTxtrevise v $version ($OSNAME)\n";
@@ -140,12 +140,12 @@ sub displayUsage {
 }
 
 sub displayError {
-	##
-	# Display an error message and usage instructions.
-	# $_[0]: Error to display in error message.
-	##
-	print "\nError: $_[0].\n";
-	displayUsage();	
+    ##
+    # Display an error message and usage instructions.
+    # $_[0]: Error to display in error message.
+    ##
+    print "\nError: $_[0].\n";
+    displayUsage();	
 }
 
 # Invoke main method.

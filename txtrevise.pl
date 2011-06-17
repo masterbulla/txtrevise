@@ -27,7 +27,7 @@ sub main {
     # Count arguments provided, if none;
     # display "No arguments.." message and usage.
     if(@ARGV < 1) {
-	    displayError("No options specified")
+        displayError("No options specified")
     }
 
     # Process provided arguments

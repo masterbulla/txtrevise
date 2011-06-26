@@ -6,10 +6,11 @@ It is a much neater rewrite of a tool that I previously wrote in C++, called rev
 
 Also reimplemented in Perl. 2011.
 
-# Installing
+Installing
+----------
 
 On [Ubuntu](http://www.ubuntu.com) and its [derivatives](http://en.wikipedia.org/wiki/List_of_Linux_distributions#Ubuntu-based), you can install txtrevise from its Launchpad PPA on the terminal using `apt-get` with:
 
-`sudo add-apt-repository ppa:s.stpettersen/txtrevise-util
-`sudo apt-get update
-`sudo apt-get install txtrevise
+`sudo add-apt-repository ppa:s.stpettersen/txtrevise-util`
+`sudo apt-get update`
+`sudo apt-get install txtrevise`

@@ -37,7 +37,7 @@ sub main {
     my $lineno = 1;
     my $help = 0;
 
-    Getopt::Long::GetOptions(
+    GetOptions(
     	'h' => \$help,
     	'f=s' => \$filename,
     	'l=i' => \$lineno,

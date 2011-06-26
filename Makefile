@@ -14,8 +14,10 @@ FREEZE = /usr/bin/freeze.sh # Shell script for Freeze
 
 make: 
 	@echo Build ${TARGET} program
-	@echo make py2exe - build + install py2exe executable
-	@echo make freeze - build + install Freeze Unix exectuable
+	@echo make py2exe - build py2exe executable
+	@echo make freeze - build Freeze Unix exectuable
+	@echo make instnix - install Freeze executable
+	@echo make instwin - install py2exe executable
 
 py2exe: create_exe.py ${TARGET}.py
 	@echo Building executable for Win...
@@ -25,9 +27,6 @@ py2exe: create_exe.py ${TARGET}.py
 	mv dist/${TARGET}.exe dist/t.exe
 	upx -9 -o dist/${TARGET}.exe dist/t.exe
 	rm dist/t.exe
-	@echo Installing executable...
-	mv dist/${TARGET}.exe ${INSTALL_DIR_W}
-	@echo Done.
 	
 freeze: ${TARGET}.py
 	cp Makefile Makefile.1
@@ -35,12 +34,18 @@ freeze: ${TARGET}.py
 	${FREEZE} ${TARGET}.py
 	make
 	rm Makefile
-	rm *.c
-	rm *.o
+	rm -f *.c
+	rm -f  *.o
 	mv Makefile.1 Makefile
 	mv ${TARGET} t
 	upx -9 -o ${TARGET} t
-	rm t
+	rm -f t
+
+instnix: freeze
 	@echo Installing executable...
 	mv ${TARGET} ${INSTALL_DIR_U}
-	
+
+instwin: py2exe
+	@Echo Installing executable...
+	mv ${TARGET} ${INSTALL_DIR_W}
+

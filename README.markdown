@@ -5,6 +5,7 @@ Txtrevise is a command line text editing tool, designed for quickly replacing te
 It is a much neater rewrite of a tool that I previously wrote in C++, called revise.
 
 Also reimplemented in Perl. 2011.
+Also reimplemented in Ruby gem with API. 2011. ;)
 
 Installing
 ----------
@@ -16,4 +17,8 @@ On [Ubuntu](http://www.ubuntu.com) and its [derivatives](http://en.wikipedia.org
 * `sudo apt-get install txtrevise`
 
 For the Perl implementation, use `txtrevisepl`.
+
+If you want the Ruby gem, just use:
+
+`[sudo] gem install txtrevise`
 

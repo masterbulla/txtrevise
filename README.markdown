@@ -22,3 +22,10 @@ If you want the Ruby gem, just use:
 
 `[sudo] gem install txtrevise`
 
+TODO
+----
+
+* Add Travis CI integration!
+* Fix PPA for Trusty Tahr and Utopic Unicorn.
+
+

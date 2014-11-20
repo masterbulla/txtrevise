@@ -1,11 +1,13 @@
+# =====================================
 # Makefile for txtrevise
-# ======================
+# =====================================
 # Requirements to build:
 # * Make
 # * Python
 # * Py2exe (Win) or Freeze (Unix)
 # * MSYS (Win)
 # * UPX
+# =====================================
 
 TARGET = txtrevise
 INSTALL_DIR_U = /usr/bin 
@@ -37,7 +39,6 @@ freeze: ${TARGET}.py
 	rm -f *.c
 	rm -f  *.o
 	mv Makefile.1 Makefile
-	mv dist/${TARGET} dist/t
 	strip dist/${TARGET}
 	rm -f dist/t
 

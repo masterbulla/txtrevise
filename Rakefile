@@ -5,7 +5,7 @@
 task :travis => [:deps, :build, :install, :test]
 
 task :deps do
-	sh "pip install cx_Freeze"
+	sh "pip -q install cx_Freeze"
 	sh "sudo apt-get install upx"
 	puts ""
 end

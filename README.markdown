@@ -25,7 +25,6 @@ If you want the Ruby gem, just use:
 TODO
 ----
 
-* Add Travis CI integration!
 * Fix PPA for Trusty Tahr and Utopic Unicorn.
 
 

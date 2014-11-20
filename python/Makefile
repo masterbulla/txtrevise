@@ -25,7 +25,7 @@ py2exe: create_exe.py ${TARGET}.py
 	rm -r build
 	rm dist/w9xpopen.exe
 	mv dist/${TARGET}.exe dist/t.exe
-	upx -9 -o dist/${TARGET}.exe dist/t.exe
+	upx -9 -q -o dist/${TARGET}.exe dist/t.exe
 	rm dist/t.exe
 	
 freeze: ${TARGET}.py
@@ -38,7 +38,7 @@ freeze: ${TARGET}.py
 	rm -f  *.o
 	mv Makefile.1 Makefile
 	mv dist/${TARGET} dist/t
-	upx -9 -o dist/${TARGET} dist/t
+	upx -9 -q -o dist/${TARGET} dist/t
 	rm -f dist/t
 
 instnix: freeze
@@ -64,4 +64,3 @@ testnix:
 cleannix:
 	rm rsample.txt
 	rm ${INSTALL_DIR_U}/${TARGET}
-	

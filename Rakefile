@@ -19,7 +19,7 @@ end
 
 task :install do
 	Dir.chdir("python") do
-		sh "make instnix"
+		sh "sudo make instnix"
 		puts ""
 	end
 end

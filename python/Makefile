@@ -10,7 +10,7 @@
 TARGET = txtrevise
 INSTALL_DIR_U = /usr/bin 
 INSTALL_DIR_W = /c/dev/bin
-FREEZE = /usr/bin/freeze.sh # Shell script for Freeze
+FREEZE = cxfreeze
 
 make: 
 	@echo Build ${TARGET} program
@@ -46,6 +46,21 @@ instnix: freeze
 	mv ${TARGET} ${INSTALL_DIR_U}
 
 instwin: py2exe
-	@Echo Installing executable...
+	@echo Installing executable...
 	mv ${TARGET} ${INSTALL_DIR_W}
 
+testnix:
+	cp sample.txt rsample.txt
+	${TARGET} -i
+	@echo
+	${TARGET} -v
+	@echo
+	cat -n rsample.txt
+	${TARGET} -f rsample.txt -l 1 -m "colours" -r "colors"
+	cat -n rsample.txt
+	${TARGET} -q -r rsample.txt -l 2 -m "hates" -r "loves"
+
+cleannix:
+	rm rsample.txt
+	rm ${INSTALL_DIR_U}/${TARGET}
+	

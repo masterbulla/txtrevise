@@ -2,13 +2,7 @@
 # Rakefile for building txtrevise on Travis CI.
 #
 
-task :travis => [:deps, :build, :install, :test]
-
-task :deps do
-	sh "pip -q install cx_Freeze"
-	sh "sudo apt-get install upx"
-	puts ""
-end
+task :travis => [:build, :install, :test]
 
 task :build do
 	Dir.chdir("python") do

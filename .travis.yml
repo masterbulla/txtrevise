@@ -1,6 +1,7 @@
 language: python
 python:
     - 2.7
+    - 3.1
 
 install: pip -q install cx_Freeze
 

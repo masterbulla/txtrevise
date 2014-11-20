@@ -59,6 +59,7 @@ testnix:
 	${TARGET} -f rsample.txt -l 1 -m "colours" -r "colors"
 	cat -n rsample.txt
 	${TARGET} -q -r rsample.txt -l 2 -m "hates" -r "loves"
+	cat -n rsample.txt
 
 cleannix:
 	rm rsample.txt

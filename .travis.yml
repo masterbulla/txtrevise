@@ -2,7 +2,7 @@ language: python
 python:
     - 2.7
 
-install: pip --version
+install: pip -q install cx_Freeze
 
 script: rake travis
 after_script: rake clean

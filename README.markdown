@@ -26,5 +26,3 @@ TODO
 ----
 
 * Fix PPA for Trusty Tahr and Utopic Unicorn.
-
-

@@ -31,7 +31,7 @@ py2exe: create_exe.py ${TARGET}.py
 freeze: ${TARGET}.py
 	cp Makefile Makefile.1
 	@echo Building executable for Unix-like...
-	${FREEZE} ${TARGET}.py
+	${FREEZE} ${TARGET}.py --target-dir dist
 	make
 	rm Makefile
 	rm -f *.c

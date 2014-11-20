@@ -65,4 +65,3 @@ testnix:
 cleannix:
 	rm rsample.txt
 	rm ${INSTALL_DIR_U}/${TARGET}
-	

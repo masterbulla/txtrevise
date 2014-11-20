@@ -41,11 +41,11 @@ freeze: ${TARGET}.py
 	upx -9 -q -o dist/${TARGET} dist/t
 	rm -f dist/t
 
-instnix: freeze
+instnix:
 	@echo Installing executable...
 	mv dist/${TARGET} ${INSTALL_DIR_U}
 
-instwin: py2exe
+instwin:
 	@echo Installing executable...
 	mv dist/${TARGET} ${INSTALL_DIR_W}
 

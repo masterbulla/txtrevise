@@ -27,11 +27,13 @@ end
 task :test do
 	Dir.chdir("python") do
 		sh "make testnix"
+		puts ""
 	end
 end
 
 task :clean do
 	Dir.chdir("python") do
 		sh "make cleannix"
+		puts ""
 	end
 end

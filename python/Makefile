@@ -37,17 +37,17 @@ freeze: ${TARGET}.py
 	rm -f *.c
 	rm -f  *.o
 	mv Makefile.1 Makefile
-	mv ${TARGET} t
-	upx -9 -o ${TARGET} t
-	rm -f t
+	mv dist/${TARGET} dist/t
+	upx -9 -o dist/${TARGET} dist/t
+	rm -f dist/t
 
 instnix: freeze
 	@echo Installing executable...
-	mv ${TARGET} ${INSTALL_DIR_U}
+	mv dist/${TARGET} ${INSTALL_DIR_U}
 
 instwin: py2exe
 	@echo Installing executable...
-	mv ${TARGET} ${INSTALL_DIR_W}
+	mv dist/${TARGET} ${INSTALL_DIR_W}
 
 testnix:
 	cp sample.txt rsample.txt

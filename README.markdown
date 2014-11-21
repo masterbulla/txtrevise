@@ -10,7 +10,7 @@ Also reimplemented in Ruby gem with API. 2011. ;)
 
 #### Installing
 
-On [Ubuntu](http://www.ubuntu.com) and its [derivatives](http://en.wikipedia.org/wiki/List_of_Linux_distributions#Ubuntu-based), you can install txtrevise from its Launchpad PPA on the terminal using `apt-get` with:
+On [Ubuntu](http://www.ubuntu.com) (available for **Natty Narwhal (11.04)**, **Trusty Tahr (14.04.1 LTS)** and **Utopic Unicorn (14.10)**) and its [derivatives](http://en.wikipedia.org/wiki/List_of_Linux_distributions#Ubuntu-based), you can install txtrevise from its Launchpad PPA on the terminal using `apt-get` with:
 
 * `sudo add-apt-repository ppa:s.stpettersen/txtrevise-util`
 * `sudo apt-get update`
@@ -22,6 +22,6 @@ If you want the Ruby gem, just use:
 
 `[sudo] gem install txtrevise`
 
-##### TODO
+##### Updates
 
-* Fix PPA for Trusty Tahr and Utopic Unicorn.
+* Made txtrevise (1.1-1) available on PPA for Trusty Tahr and Utopic Unicorn. (*21/11/2014*).

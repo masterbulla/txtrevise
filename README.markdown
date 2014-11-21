@@ -24,4 +24,4 @@ If you want the Ruby gem, just use:
 
 ##### Updates
 
-* Made txtrevise (1.1-1) available on PPA for Trusty Tahr and Utopic Unicorn. *21/11/2014*
+* Made txtrevise (1.1-1) available on PPA for Trusty Tahr and Utopic Unicorn. (*21/11/2014*).

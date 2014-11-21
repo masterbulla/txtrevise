@@ -3,17 +3,16 @@
 """
 Txtrevise
 Command line text editing tool
-Version 1.2
-Copyright (c) 2009, 2014 Sam Saint-Pettersen
+Version 1.1
+Copyright (c) 2009 Sam Saint-Pettersen
 
 Released under the MIT License
 """
 import sys
 import getopt
 import re
-import zipimport # Just so cx_Freeze works.
 
-version = '1.2' # Application version
+version = '1.1' # Application version
 
 def main():
     """
@@ -115,7 +114,7 @@ def displayUsage():
     """
     print("\nTxtrevise v %s (%s)" % (version, sys.platform))
     print("Command line text editing tool")
-    print("Copyright (c) 2009, 2014 Sam Saint-Pettersen")
+    print("Copyright (c) 2009 Sam Saint-Pettersen")
     print("\nReleased under the MIT License")
     print("\nUsage: %s [-h] (-q) -f <file> -l <line #> -m <word(s)>" % sys.argv[0])
     print("\t-r <word(s)>")

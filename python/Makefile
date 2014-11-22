@@ -51,8 +51,6 @@ testnix:
 	cp sample.txt rsample.txt
 	${TARGET} -h
 	@echo
-	${TARGET} -v
-	@echo
 	cat -n rsample.txt
 	@echo
 	${TARGET} -f rsample.txt -l 1 -m "colours" -r "colors"

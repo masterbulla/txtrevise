@@ -38,8 +38,6 @@ freeze: ${TARGET}.py
 	rm -f *.c
 	rm -f  *.o
 	mv Makefile.1 Makefile
-	dist/${TARGET}
-	#strip dist/${TARGET}
 
 instnix:
 	@echo Installing executable...
@@ -51,16 +49,20 @@ instwin:
 
 testnix:
 	cp sample.txt rsample.txt
-	${TARGET} -i
+	${TARGET} -h
 	@echo
 	${TARGET} -v
 	@echo
 	cat -n rsample.txt
+	@echo
 	${TARGET} -f rsample.txt -l 1 -m "colours" -r "colors"
+	@echo
 	cat -n rsample.txt
-	${TARGET} -q -r rsample.txt -l 2 -m "hates" -r "loves"
+	@echo
+	${TARGET} -q -f rsample.txt -l 2 -m "hates" -r "loves"
+	@echo
 	cat -n rsample.txt
 
 cleannix:
-	rm rsample.txt
-	rm ${INSTALL_DIR_U}/${TARGET}
+	rm -f rsample.txt
+	rm -f ${INSTALL_DIR_U}/${TARGET}

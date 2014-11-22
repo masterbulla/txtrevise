@@ -63,4 +63,4 @@ testnix:
 
 cleannix:
 	rm -f rsample.txt
-	rm -f ${INSTALL_DIR_U}/${TARGET}
+	sudo rm -f ${INSTALL_DIR_U}/${TARGET}

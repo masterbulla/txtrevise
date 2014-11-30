@@ -6,7 +6,6 @@
 # * Python
 # * Py2exe (Win) or Freeze (Unix)
 # * MSYS (Win)
-# * UPX
 # =====================================
 
 TARGET = txtrevise

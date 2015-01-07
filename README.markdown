@@ -12,7 +12,7 @@ Also reimplemented in Ruby gem with API. 2011. ;)
 
 On [Ubuntu](http://www.ubuntu.com) (available for **Natty Narwhal (11.04)**, **Trusty Tahr (14.04.1 LTS)** and **Utopic Unicorn (14.10)**) and its [derivatives](http://en.wikipedia.org/wiki/List_of_Linux_distributions#Ubuntu-based), you can install txtrevise from its Launchpad PPA on the terminal using `apt-get` with:
 
-* `sudo add-apt-repository ppa:s.stpettersen/txtrevise-util`
+* `sudo add-apt-repository [ppa:s.stpettersen/txtrevise-util]`[*](https://launchpad.net/~s.stpettersen/+archive/ubuntu/txtrevise-util)
 * `sudo apt-get update`
 * `sudo apt-get install txtrevise`
 

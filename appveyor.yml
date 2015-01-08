@@ -16,7 +16,7 @@ install:
     - "%PYTHON%/Scripts/pip.exe -q install cx_Freeze"
 
 build_script:
-    - ps: "cp .\python\txtrevise.py ."
+    - ps: "cp ./python/txtrevise.py ."
     - "%PYTHON%/python.exe %PYTHON%/Scripts/cxfreeze txtrevise.py --target-dir ."
     - ps: "rm txtrevise.py"
 

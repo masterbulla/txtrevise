@@ -19,7 +19,12 @@ install:
     - "%PYTHON%/Scripts/pip.exe -q install cx_Freeze"
 
 build_script:
-    - "rake travis"
+    - "%PYTHON/python.exe %PYTHON%/Scripts/cxfreeze python/txtrevise.py --target-dir=."
+
+test_script:
+    - ps: "cp sample.txt rsample.txt"
+    - "txtrevise.exe -h"
+    # TODO
 
 on_success:
-    - "rake clean"
+    - ps: "rm txtrevise.exe"

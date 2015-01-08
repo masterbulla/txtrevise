@@ -17,6 +17,7 @@ install:
 
 build_script:
     - ps: "cp ./python/txtrevise.py ."
+    - ps: "cp ./python/sample.txt ."
     - "%PYTHON%/python.exe %PYTHON%/Scripts/cxfreeze txtrevise.py --target-dir ."
     - ps: "rm txtrevise.py"
 

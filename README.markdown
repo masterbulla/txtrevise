@@ -1,4 +1,4 @@
-### Txtrevise text editing tool [![Build Status](https://travis-ci.org/stpettersens/txtrevise.png?branch=master)](https://travis-ci.org/stpettersens/txtrevise)
+### Txtrevise text editing tool [![Build status](https://ci.appveyor.com/api/projects/status/github/stpettersens/genericFunctions-for-node?branch=master&svg=true)](https://ci.appveyor.com/project/stpettersens/genericFunctions-for-node) [![Build Status](https://travis-ci.org/stpettersens/txtrevise.png?branch=master)](https://travis-ci.org/stpettersens/txtrevise)
 
 Latest release: v.1.0 (Win32 2009/04/06), Implemented in Python, Targeting: Windows and Unix-like desktop platforms
 

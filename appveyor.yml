@@ -25,11 +25,11 @@ test_script:
     - "echo ."
     - ps: "cat rsample.txt"
     - "echo ."
-    - "txtrevise.exe -f rsample.txt -l 1 -m "colours" -r "colors""
+    - "txtrevise.exe -f rsample.txt -l 1 -m 'colours' -r 'colors'"
     - "echo ."
     - ps: "cat rsample.txt"
     - "echo ."
-    - "txtrevise.exe -q -f rsample.txt -l 2 -m "hates" -r "loves""
+    - "txtrevise.exe -q -f rsample.txt -l 2 -m 'hates' -r 'loves'"
     - "echo ."
     - ps: "cat rsample.txt"
  

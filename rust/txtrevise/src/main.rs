@@ -46,19 +46,18 @@ fn process_file(filename: &str, line_no: usize, matches: &str, repl: &str, verbo
         if line_num == line_no - 1 { // - 1, because lines start at 0.
             index = line_num;
         }
-        line_num + 1;
+        line_num += 1;
     }    
     all_lines[index] = match_replace(&all_lines[index], line_no, matches, repl, verbose);
     all_lines.push(String::new());
 
     let mut w = File::create(filename).unwrap();
-    let j = all_lines.join("\n");
-    w.write_all(j.as_bytes());
+    let _ = w.write_all(all_lines.join("\n").as_bytes());
 }
 
 /// Match and replace word(s).
 fn match_replace(line: &str, line_no: usize, matches: &str, repl: &str, verbose: bool) -> String {
-    let mut new_line = String::new();
+    let new_line: String;
     let re = Regex::new(matches).unwrap();
 
     // If word(s) are matched, return edited line with replacment word(s).
@@ -106,12 +105,12 @@ fn main() {
                 line_no = match ol {
                     Some(line_no) => line_no,
                     None => {
-                        display_error(&"Line number must be an integer");
+                        display_error("Line number must be an integer");
                         return;
                     }
                 };
                 if line_no == 0 {
-                    display_error(&"Line number must be greater than 0");
+                    display_error("Line number must be greater than 0");
                     return;
                 }
             }

@@ -1,8 +1,10 @@
-// Txtrevise
-// Command line text editing tool
-// Version 1.0.0 (equivalent to Python impl. 1.1)
-// Copyright (c) 2015 Sam Saint-Pettersen
-// Released under the MIT License.
+/* 
+    Txtrevise (rust)
+    Command line text editing tool
+    Version 1.0.0 (equivalent to Python impl. 1.1)
+    Copyright (c) 2015 Sam Saint-Pettersen
+    Released under the MIT License.
+*/
 
 extern crate regex;
 use std::env;
@@ -48,9 +50,12 @@ fn process_file(filename: &str, line_no: usize, matches: &str, repl: &str, verbo
         }
         line_num += 1;
     }    
+
+    // Revise the selected line and append newline.
     all_lines[index] = match_replace(&all_lines[index], line_no, matches, repl, verbose);
     all_lines.push(String::new());
 
+    // Write out changed lines to file.
     let mut w = File::create(filename).unwrap();
     let _ = w.write_all(all_lines.join("\n").as_bytes());
 }
@@ -70,7 +75,7 @@ fn match_replace(line: &str, line_no: usize, matches: &str, repl: &str, verbose:
             println!("Replaced with: {}", new_line);
         }
     }
-    // Otherwise, return same line as before
+    // Otherwise, return same line as before.
     else {
         if verbose {
             println!("\nNo matches at Line {}", line_no);
@@ -78,6 +83,19 @@ fn match_replace(line: &str, line_no: usize, matches: &str, repl: &str, verbose:
         new_line = line.to_string();
     }
     new_line
+}
+
+/// Get next argument.
+fn next_argument(ref i: usize) -> String {
+    let a = env::args().nth(i + 1);
+    let arg = match a {
+        Some(a) => a,
+        None => {
+            display_error("Invalid argument");
+            return String::new();
+        }
+    };
+    arg
 }
 
 /// Entry method.
@@ -95,12 +113,10 @@ fn main() {
                 display_usage();
             }
             if a == "-f" {
-                filename = format!("{:?}", env::args().nth(i + 1));
-                filename = filename[6..filename.len() - 2].to_string();
+                filename = next_argument(i);
             }
             if a == "-l" {
-                let mut l = format!("{:?}", env::args().nth(i + 1));
-                l = l[6..l.len() - 2].to_string();
+                let l = next_argument(i);
                 let ol = l.parse::<usize>().ok();
                 line_no = match ol {
                     Some(line_no) => line_no,
@@ -115,12 +131,10 @@ fn main() {
                 }
             }
             if a == "-m" {
-                matches = format!("{:?}", env::args().nth(i + 1));
-                matches = matches[6..matches.len() - 2].to_string();
+                matches = next_argument(i);
             }
             if a == "-r" {
-                repl = format!("{:?}", env::args().nth(i + 1));
-                repl = repl[6..repl.len() - 2].to_string();
+                repl = next_argument(i);
             }
             if a == "-q" {
                 verbose = false;

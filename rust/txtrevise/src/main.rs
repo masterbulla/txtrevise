@@ -139,7 +139,7 @@ fn main() {
             if a == "-q" {
                 verbose = false;
             }
-            i = i + 1;
+            i += 1;
         }
     }
     else {

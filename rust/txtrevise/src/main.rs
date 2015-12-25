@@ -86,7 +86,7 @@ fn match_replace(line: &str, line_no: usize, matches: &str, repl: &str, verbose:
 }
 
 /// Get next argument.
-fn next_argument(ref i: usize) -> String {
+fn next_argument(i: usize) -> String {
     let a = env::args().nth(i + 1);
     let arg = match a {
         Some(a) => a,

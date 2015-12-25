@@ -61,7 +61,7 @@ fn match_replace(line: &str, line_no: usize, matches: &str, repl: &str, verbose:
     let re = Regex::new(matches).unwrap();
 
     // If word(s) are matched, return edited line with replacment word(s).
-    if re.is_match(matches) {
+    if re.is_match(line) {
         if verbose {
             println!("\nMatched at Line {}: {}", line_no, line);
         }

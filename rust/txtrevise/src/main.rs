@@ -24,7 +24,7 @@ fn display_usage() {
     println!("Command line text editing tool");
     println!("Copyright (c) 2015 Sam Saint-Pettersen");
     println!("\nReleased under the MIT License");
-    println!("Usage: txtrevise.py [-h] (-q) -f <file> -l <line #> -m <word(s)>");
+    println!("Usage: {} [-h] (-q) -f <file> -l <line #> -m <word(s)>", program());
     println!("-r <word(s)>");
     println!("\n-f: File to edit");
     println!("-l: Line number to edit text on (starts at 1)");
@@ -94,6 +94,16 @@ fn next_argument(i: usize) -> String {
             display_error("Invalid argument");
             return String::new();
         }
+    };
+    arg
+}
+
+/// Get program name from first argument.
+fn program() -> String {
+    let a = env::args().nth(0);
+    let arg = match a {
+        Some(a) => a,
+        None => return "txtrevise".to_string(),
     };
     arg
 }

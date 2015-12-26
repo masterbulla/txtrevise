@@ -24,7 +24,7 @@ fn display_usage() {
     println!("Command line text editing tool");
     println!("Copyright (c) 2015 Sam Saint-Pettersen");
     println!("\nReleased under the MIT License");
-    println!("Usage: {} [-h] (-q) -f <file> -l <line #> -m <word(s)>", program());
+    println!("\nUsage: {} [-h] (-q) -f <file> -l <line #> -m <word(s)>", program());
     println!("-r <word(s)>");
     println!("\n-f: File to edit");
     println!("-l: Line number to edit text on (starts at 1)");
@@ -65,7 +65,7 @@ fn match_replace(line: &str, line_no: usize, matches: &str, repl: &str, verbose:
     let new_line: String;
     let re = Regex::new(matches).unwrap();
 
-    // If word(s) are matched, return edited line with replacment word(s).
+    // If word(s) are matched, return edited line with replacement word(s).
     if re.is_match(line) {
         if verbose {
             println!("\nMatched at Line {}: {}", line_no, line);

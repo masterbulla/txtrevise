@@ -72,7 +72,7 @@ func processFile(filename string, lineNo int, matches string, repl string, verbo
 }
 
 // Match and replace word(s).
-func matchReplace(line string, lineNo int, matches string, repl string, verbose bool) (string) {
+func matchReplace(line string, lineNo int, matches string, repl string, verbose bool) string {
     var newLine string
     re, err := regexp.Compile(matches)
 

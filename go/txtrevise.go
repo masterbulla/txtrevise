@@ -20,14 +20,14 @@ import (
 
 // Display error and then usage information.
 func displayError(err string) {
-	fmt.Println(fmt.Sprintf("Error: %s.", err))
-	displayUsage()
+    fmt.Println(fmt.Sprintf("Error: %s.", err))
+    displayUsage()
     os.Exit(-1)
 }
 
 // Display usage information.
 func displayUsage() {
-	fmt.Println("\nTxtrevise v 1.0.0 (go)");
+    fmt.Println("\nTxtrevise v 1.0.0 (go)");
     fmt.Println("Command line text editing tool");
     fmt.Println("Copyright (c) 2015 Sam Saint-Pettersen");
     fmt.Println("\nReleased under the MIT License");
@@ -133,7 +133,6 @@ func main() {
             if a == "-q" {
                 verbose = false;
             }
-            i += 1
         }
 
     } else {

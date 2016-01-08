@@ -8,10 +8,11 @@
 
 extern crate clioptions;
 extern crate regex;
-use clioptons::CliOptions;
+use clioptions::CliOptions;
 use regex::Regex;
 use std::io::{BufRead, BufReader, Write};
 use std::fs::File;
+use std::process::exit;
 
 // Display error and then usage information.
 fn display_error(program: &str, err: &str) {
@@ -99,7 +100,7 @@ fn main() {
     if cli.get_num() > 1 {
         for (i, a) in args.iter().enumerate() {
             if a == "-h" {
-                display_usage();
+                display_usage(&program, 0);
             }
             if a == "-f" {
                 filename = cli.next_argument(i);

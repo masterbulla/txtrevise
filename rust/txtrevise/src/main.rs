@@ -26,14 +26,14 @@ fn display_usage(program: &str, code: i32) {
     println!("Command line text editing tool");
     println!("Copyright (c) 2015 Sam Saint-Pettersen");
     println!("\nReleased under the MIT License");
-    println!("\nUsage: {} [-h] (-q) -f <file> -l <line #> -m <word(s)>", program);
-    println!("-r <word(s)>");
-    println!("\n-f: File to edit");
-    println!("-l: Line number to edit text on (starts at 1)");
-    println!("-m: Word(s) to match");
-    println!("-r: Replacement word(s) for matched word(s)");
-    println!("-q: Quiet mode. Only output to console for errors");
-    println!("-h: This help information");
+    println!("\nUsage: {} [-h|--help] (-q|--quiet) -f|--file <file>", program);
+    println!("-l|--line <line #> -m|--match <word(s)> -r|--repl <word(s)>");
+    println!("\n-f|--file: File to edit");
+    println!("-l|--line: Line number to edit text on (starts at 1)");
+    println!("-m|--match: Word(s) to match");
+    println!("-r|--repl: Replacement word(s) for matched word(s)");
+    println!("-q|--quiet: Quiet mode. Only output to console for errors");
+    println!("-h|--help: This help information");
     exit(code);
 }
 
@@ -99,35 +99,28 @@ fn main() {
     let mut line_no: usize = 0;
     if cli.get_num() > 1 {
         for (i, a) in args.iter().enumerate() {
-            if a == "-h" {
-                display_usage(&program, 0);
-            }
-            if a == "-f" {
-                filename = cli.next_argument(i);
-            }
-            if a == "-l" {
-                let l = cli.next_argument(i);
-                let ol = l.parse::<usize>().ok();
-                line_no = match ol {
-                    Some(line_no) => line_no,
-                    None => {
-                        display_error(&program, "Line number must be an integer");
+            match a.trim() {
+                "-h" | "--help" => display_usage(&program, 0),
+                "-f" | "--file" => filename = cli.next_argument(i),
+                "-l" | "--line" => {
+                    let l = cli.next_argument(i);
+                    let ol = l.parse::<usize>().ok();
+                    line_no = match ol {
+                        Some(line_no) => line_no,
+                        None => {
+                            display_error(&program, "Line number must be an integer");
+                            return;
+                        }
+                    };
+                    if line_no == 0 {
+                        display_error(&program, "Line number must be greater than 0");
                         return;
                     }
-                };
-                if line_no == 0 {
-                    display_error(&program, "Line number must be greater than 0");
-                    return;
-                }
-            }
-            if a == "-m" {
-                matches = cli.next_argument(i);
-            }
-            if a == "-r" {
-                repl = cli.next_argument(i);
-            }
-            if a == "-q" {
-                verbose = false;
+                },
+                "-m" | "--match" => matches = cli.next_argument(i),
+                "-r" | "--repl" => repl = cli.next_argument(i),
+                "-q" | "--quiet" => verbose = false,
+                _ => continue,
             }
         }
     }
@@ -135,8 +128,10 @@ fn main() {
         display_error(&program, "No options specified");
     } 
 
-    // With necessary arguments, process file.
-    if cli.get_num() > 2 && filename.len() > 0 {
+    if !filename.is_empty() && !matches.is_empty() && !repl.is_empty() {
         process_file(&filename, line_no, &matches, &repl, verbose);
+    }
+    else {
+        display_error(&program, "Incomplete options specified");
     }
 }
